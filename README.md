@@ -4,7 +4,17 @@
 yarn start
 ```
 
+# Onboarding Process
 
+The onboarding process includes the following steps:
+
+1. **First Page**:
+   - Company Name
+   - Main Contact
+   - Website
+   - Email
+   - Phone
+   - Upload Image
 
 # Design
 
