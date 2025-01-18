@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './OnboardingForm.css';
 
-const OnboardingForm = () => {
+const OnboardingForm = ({ onNext }) => {
     const [embedCode, setEmbedCode] = useState('');
     const [showEmbedCode, setShowEmbedCode] = useState(false);
 
@@ -50,7 +50,7 @@ const OnboardingForm = () => {
                     )}
                 </div>
                 
-                <button type="submit">Submit</button>
+                <button type="button" onClick={onNext}>Next</button>
             </form>
         </div>
     );
