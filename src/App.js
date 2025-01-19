@@ -3,9 +3,11 @@ import './App.css';
 import OnboardingForm from './components/onboarding/OnboardingForm';
 import OnboardingStep2 from './components/onboarding/OnboardingStep2';
 import Services from './components/services/Services';
+import Treatments from './components/treatments/Treatments';
 
 const App = () => {
     const [step, setStep] = useState(1);
+    const [selectedService, setSelectedService] = useState('');
 
     const nextStep = () => {
         setStep(step + 1);
@@ -15,11 +17,17 @@ const App = () => {
         setStep(step - 1);
     };
 
+    const handleServiceSelect = (service) => {
+        setSelectedService(service);
+        nextStep();
+    };
+
     return (
         <div className="App">
-            {step === 3 && <OnboardingForm onNext={nextStep} />}
+            {step === 1 && <OnboardingForm onNext={nextStep} />}
             {step === 2 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
-            {step === 1 && <Services onBack={prevStep} onNext={nextStep} />}
+            {step === 3 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
+            {step === 4 && <Treatments selectedService={selectedService} onBack={prevStep} />}
         </div>
     );
 };
