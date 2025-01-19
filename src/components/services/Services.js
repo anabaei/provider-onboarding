@@ -23,6 +23,12 @@ const Services = ({ onBack, onNext }) => {
         );
     };
 
+    const handleNext = () => {
+        if (selectedServices.length > 0) {
+            onNext(selectedServices[0]);
+        }
+    };
+
     return (
         <div className="services-container">
             <h1>Select Services</h1>
@@ -38,6 +44,7 @@ const Services = ({ onBack, onNext }) => {
                 ))}
             </div>
             <button type="button" onClick={onBack}>Back</button>
+            <button type="button" onClick={handleNext}>Next</button>
         </div>
     );
 };
