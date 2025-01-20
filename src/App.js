@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import OnboardingForm from './components/onboarding/OnboardingForm';
-import OnboardingStep2 from './components/onboarding/OnboardingStep2';
+import OnboardingStep2 from './components/onboarding2/OnboardingStep2';
 import Services from './components/services/Services';
 import Treatments from './components/treatments/Treatments';
 
@@ -24,8 +24,8 @@ const App = () => {
 
     return (
         <div className="App">
-            {step === 1 && <OnboardingForm onNext={nextStep} />}
-            {step === 2 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
+            {step === 2 && <OnboardingForm onNext={nextStep} />}
+            {step === 1 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
             {step === 3 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
             {step === 4 && <Treatments selectedService={selectedService} onBack={prevStep} />}
         </div>
