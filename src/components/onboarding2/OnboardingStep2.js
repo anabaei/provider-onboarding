@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './OnboardingStep2.css';
 
-const OnboardingStep2 = ({ onBack }) => {
+const OnboardingStep2 = ({ onBack, onNext}) => {
     const [modalContent, setModalContent] = useState(null);
     const [row1Data, setRow1Data] = useState([]);
     const [row2Data, setRow2Data] = useState([]);
