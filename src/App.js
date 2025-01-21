@@ -24,10 +24,10 @@ const App = () => {
 
     return (
         <div className="App">
-            {step === 2 && <OnboardingForm onNext={nextStep} />}
-            {step === 1 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
-            {step === 3 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
-            {step === 4 && <Treatments selectedService={selectedService} onBack={prevStep} />}
+            {step === 3 && <OnboardingForm onNext={nextStep} />}
+            {step === 2 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
+            {step === 4 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
+            {step === 1 && <Treatments selectedService={selectedService} onBack={prevStep} />}
         </div>
     );
 };
