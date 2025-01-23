@@ -1,6 +1,10 @@
 .treatments-container {
     text-align: center;
-    margin: 20px;
+    margin: 2rem 15rem;
+}
+
+.treatments-table-container {
+    overflow-x: auto;
 }
 
 .treatments-table {
