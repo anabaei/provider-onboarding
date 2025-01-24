@@ -5,6 +5,7 @@ import OnboardingStep2 from './components/onboarding2/OnboardingStep2';
 import Services from './components/services/Services';
 import Treatments from './components/treatments/Treatments';
 import WeeklyAvailability from './components/availability/WeeklyAvailability';
+import Restriction from './components/restriction/Restriction';
 
 const App = () => {
     const [step, setStep] = useState(1);
@@ -29,7 +30,8 @@ const App = () => {
             {step === 2 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
             {step === 3 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
             {step === 4 && <Treatments selectedService={selectedService} onBack={prevStep} onNext={nextStep} />}
-            {step === 1 && <WeeklyAvailability onBack={prevStep} onNext={nextStep} />}
+            {step === 5 && <WeeklyAvailability onBack={prevStep} onNext={nextStep} />}
+            {step === 1 && <Restriction onBack={prevStep} onNext={nextStep} />}
         </div>
     );
 };
