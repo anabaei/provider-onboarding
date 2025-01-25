@@ -1,6 +1,6 @@
 .restriction-container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
     gap: 10px;
     margin: 10rem 20rem;

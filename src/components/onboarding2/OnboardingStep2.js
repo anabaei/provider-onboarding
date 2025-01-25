@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Avatar, Divider, Upload } from 'antd';
 import './OnboardingStep2.css';
 
 const OnboardingStep2 = ({ onBack, onNext}) => {
     const [modalContent, setModalContent] = useState(null);
-    const [row1Data, setRow1Data] = useState([]);
+    const [row1Data, setRow1Data] = useState([
+        { name: 'John Doe', email: 'johndoe@gmail.com', phone: '12343232232'}
+    ]);
     const [row2Data, setRow2Data] = useState([]);
 
     const openModal = (row) => {
@@ -25,8 +28,12 @@ const OnboardingStep2 = ({ onBack, onNext}) => {
 
     return (
         <div className="onboarding-step2-container">
+            <div style={{textAlign: 'left'}}>
             <h1>Onboarding Step 2</h1>
+
+            </div>
             <div className="form-row">
+            <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=3" />
                 {row1Data.map((item, index) => (
                     <div key={index} className="form-group">
                         <span>{item.name} - {item.email} - {item.phone}</span>

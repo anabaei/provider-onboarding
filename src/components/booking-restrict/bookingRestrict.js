@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Restriction.css";
-import { CalendarOutlined } from "@ant-design/icons";
+import "./bookingRestrict.css";
+import { CalendarOutlined, ContactsOutlined } from "@ant-design/icons";
 import { Switch } from "antd";
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import { QuestionCircleOutlined, MenuUnfoldOutlined, DatabaseOutlined, ContactsFilled } from "@ant-design/icons";
+
 import { StopOutlined } from "@ant-design/icons";
-const Restriction = ({ onAddRestriction }) => {
+const BookingRestrict = ({ onAddRestriction }) => {
   const [days, setDays] = useState("");
   const [number, setNumber] = useState("");
   const [unit, setUnit] = useState("minutes");
@@ -37,49 +38,38 @@ const Restriction = ({ onAddRestriction }) => {
   return (
     <div className="restriction-container">
       <div>
-        <h2 className="headline">
-          {" "}
-          <CalendarOutlined style={{color: '#1890ff'}} />{" "}
-          <div className="calendar">
-            {" "}
-            <StopOutlined style={{color: '#1890ff'}} /> Availability Restriction{" "}
-          </div>{" "}
+        <h2 className="headline" style={{ color: '#1890ff'}} >
+        
+             Booking Duration and Interval
+          
         </h2>
         <div> Define availability restriction for your availability</div>
       </div>
-      <div className="restrict-time">
-        <div className="restrict-time-details">
-          <h6> How far out user can book  <QuestionCircleOutlined /></h6>
+      <div className="restrict-time-details">
+          <div style={{marginLeft: '30px', fontSize: '14px' }}> Booking Duration  <QuestionCircleOutlined /></div>
           <div className="restrict-time-in">
+          <div style={{display: 'flex', flexDirection: 'row'}}> 
+          <DatabaseOutlined style={{ fontSize: '24px', color: '#1890ff', marginRight: '5px' }} />         
             <input
               type="number"
               placeholder="Enter number"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
             />
-            <div style={{ marginLeft: "1rem" }}> days ahead </div>
           </div>
-          <div style={{ margin: "1rem" }}>
-            <label className="switch">
-              <Switch
-                checked={maxBook.enabled}
-                onChange={() => toggleMaxBook()}
-                style={{
-                  backgroundColor: maxBook.enabled ? '#1890ff' : '#d9d9d9', // Blue when enabled, grey when disabled
-                }}
-              />
-              <span style={{ fontSize: 12 }}> Set Maximum Booking </span>
-            </label>
-            <QuestionCircleOutlined />
+            <div style={{ marginLeft: "1rem", marginTop: '5px' }}> minutes </div>
           </div>
+       
         </div>
-        <div>
+      <div className="restrict-time">
+        
           <div className="restrict-time-details">
-            <h6> Bookers can't schedual ahead  <QuestionCircleOutlined /></h6>
+            <div style={{marginLeft: '30px', fontSize: '14px' }}> Bookers can't schedual ahead  <QuestionCircleOutlined /></div>
             <div className="restrict-time-in">
               <div className="restriction-input">
+              <MenuUnfoldOutlined style={{ fontSize: '24px', color: '#1890ff', marginRight: '5px' }}  />  
                 <input
-                  style={{width: '50px'}}
+                  style={{width: '50px', marginRight: '4px'}}
                   type="number"
                   
                   value={number}
@@ -92,24 +82,29 @@ const Restriction = ({ onAddRestriction }) => {
                   <option value="days">Days</option>
                 </select>
               </div>
-              <div style={{ marginLeft: "1rem" }}> of current time </div>
+              <div style={{ marginLeft: "1rem" }}> </div>
             </div>
-            <div style={{ margin: "1rem" }}>
-              <label className="switch">
-                <Switch
-                  checked={requireApprove.enabled}
-                  onChange={() => toggleRequireApprove()}
-                  style={{
-                    backgroundColor: requireApprove.enabled ? '#1890ff' : '#d9d9d9', // Blue when enabled, grey when disabled
-                  }}
-                />
-                <span style={{ fontSize: 12 }}> Require Approve </span>
-              </label>
-              <QuestionCircleOutlined />
-            </div>
+            
           </div>
-        </div>
+        
       </div>
+      
+      <div className="restrict-time-details">
+          <div style={{marginLeft: '30px', fontSize: '14px' }}> How far out user can book  <QuestionCircleOutlined /></div>
+          <div className="restrict-time-in">
+          <div style={{display: 'flex', flexDirection: 'row'}}>
+          <ContactsOutlined style={{ fontSize: '24px', color: '#1890ff', marginRight: '5px' }}  />
+            <input
+              type="number"
+              placeholder="Enter number"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+            />
+            </div>
+            <div style={{ marginLeft: "1rem", marginTop: '5px' }}> minutes </div>
+          </div>
+          
+        </div>
     </div>
     //     <div>
     //     <input
@@ -142,4 +137,4 @@ const Restriction = ({ onAddRestriction }) => {
   );
 };
 
-export default Restriction;
+export default BookingRestrict;
