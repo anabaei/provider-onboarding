@@ -1,7 +1,7 @@
 import React from 'react';
 import './Treatments.css';
 
-const Treatments = ({ selectedService, onBack }) => {
+const Treatments = ({ selectedService, onBack, onNext }) => {
     const treatmentsList = [
         { name: 'Treatment 1', price: '$100', duration: '1 hour', specialist: 'PIC' },
         { name: 'Treatment 2', price: '$450', duration: '30 minutes', specialist: 'GP' },
@@ -34,7 +34,11 @@ const Treatments = ({ selectedService, onBack }) => {
                     </tbody>
                 </table>
             </div>
-            <button type="button" onClick={onBack}>Back</button>
+            <div className="broadcumb">
+                <div className="default-button" onClick={onBack}>Back</div>
+                <div className="default-button" onClick={onNext}>Next</div>
+                <div></div>
+            </div>
         </div>
     );
 };
