@@ -55,7 +55,7 @@ const WeeklyAvailability = ({ onBack, onNext }) => {
 
     return (
         <div className="availability-container">
-            <h1>Weekly Availability</h1>
+            <div style={{textAlign: 'left'}}>Weekly Availability</div>
             <div className="availability-grid">
                 {daysOfWeek.map(day => (
                     <div key={day} className="availability-row">
@@ -96,8 +96,11 @@ const WeeklyAvailability = ({ onBack, onNext }) => {
                     </div>
                 ))}
             </div>
-            <button type="button" onClick={onBack}>Back</button>
-            <button type="button" onClick={onNext}>Next</button>
+            <div className="broadcumb">
+                <div className="default-button" onClick={onBack}>Back</div>
+                <div className="default-button" onClick={onNext}>Next</div>
+                <div></div>
+            </div>
         </div>
     );
 };

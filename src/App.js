@@ -7,6 +7,7 @@ import Treatments from './components/treatments/Treatments';
 import WeeklyAvailability from './components/availability/WeeklyAvailability';
 import Restriction from './components/restriction/Restriction';
 import BookingRestrict from './components/booking-restrict/bookingRestrict'
+import '@ant-design/v5-patch-for-react-19';
 
 const App = () => {
     const [step, setStep] = useState(1);
