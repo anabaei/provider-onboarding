@@ -30,7 +30,7 @@ const App = () => {
         <div className="App">
             {step === 1 && <OnboardingForm onNext={nextStep} />}
             {step === 2 && <OnboardingStep2 onBack={prevStep} onNext={nextStep} />}
-            {step === 3 && <Services onBack={prevStep} onNext={handleServiceSelect} />}
+            {step === 3 && <Services onBack={prevStep}  onNext={handleServiceSelect} />}
             {step === 4 && <Treatments selectedService={selectedService} onBack={prevStep} onNext={nextStep} />}
             {step === 5 && <WeeklyAvailability onBack={prevStep} onNext={nextStep} />}
             {step === 6 && <Restriction onBack={prevStep} onNext={nextStep} />}

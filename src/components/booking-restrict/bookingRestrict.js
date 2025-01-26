@@ -1,39 +1,20 @@
 import React, { useState } from "react";
 import "./bookingRestrict.css";
-import { CalendarOutlined, ContactsOutlined } from "@ant-design/icons";
-import { Switch } from "antd";
+import { ContactsOutlined } from "@ant-design/icons";
+
 import { QuestionCircleOutlined, MenuUnfoldOutlined, DatabaseOutlined, ContactsFilled } from "@ant-design/icons";
 
-import { StopOutlined } from "@ant-design/icons";
-const BookingRestrict = ({ onAddRestriction }) => {
-  const [days, setDays] = useState("");
+
+const BookingRestrict = ({onBack, onNext}) => {
+
   const [number, setNumber] = useState("");
   const [unit, setUnit] = useState("minutes");
-  const [maxBook, setMaxBook] = useState({ enabled: false});
-  const [requireApprove, setRequireApprove ] = useState({ enabled: false});
 
-  const handleAddRestriction = () => {
-    onAddRestriction({ days, number, unit });
-    setDays("");
-    setNumber("");
-    setUnit("minutes");
-  };
+ 
 
-  const toggleMaxBook = () => {
-    console.log(maxBook)
-    setMaxBook(maxBook => ({
-      ...maxBook,
-      enabled: !maxBook.enabled
-   }));
-  };
 
-  const toggleRequireApprove = () => {
-    console.log(requireApprove)
-    setRequireApprove(requireApprove => ({
-          ...requireApprove,
-          enabled: !requireApprove.enabled
-       }));
-  };
+
+  
 
   return (
     <div className="restriction-container">
@@ -105,6 +86,12 @@ const BookingRestrict = ({ onAddRestriction }) => {
           </div>
           
         </div>
+        <div className="broadcumb">
+                
+                <div className="default-button" onClick={onBack}>Back</div>
+                <div className="default-button" onClick={onNext}>Next</div>
+                <div></div>
+                </div>
     </div>
     //     <div>
     //     <input

@@ -13,44 +13,44 @@ const OnboardingForm = ({ onNext }) => {
 
     return (
         <div className="onboarding-container">
-            <h1>Onboarding</h1>
             <form className="onboarding-form">
+            <h1 style={{textAlign: 'left'}}>Onboarding</h1>
                 <div className="form-row">
                     <div className="form-group">
-                        <input type="text" id="companyName" name="companyName" placeholder="Company Name" />
+                        <input className='custom-input' type="text" id="companyName" name="companyName" placeholder="Company Name" />
                     </div>
                     <div className="form-group">
-                        <input type="text" id="mainContact" name="mainContact" placeholder="Main Contact" />
+                        <input className='custom-input' type="text" id="mainContact" name="mainContact" placeholder="Main Contact" />
                     </div>
                 </div>
                 
                 <div className="form-row">
                     <div className="form-group">
-                        <input type="url" id="website" name="website" placeholder="Website" />
+                        <input className='custom-input' type="url" id="website" name="website" placeholder="Website" />
                     </div>
                     <div className="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email" />
+                        <input className='custom-input' type="email" id="email" name="email" placeholder="Email" />
                     </div>
                 </div>
                 
                 <div className="form-row">
                     <div className="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Phone" />
+                        <input  type="file" id="uploadImage" name="uploadImage" className="upload-input" />
+                        <label htmlFor="uploadImage" className="upload-button">Upload Image</label>
                     </div>
                     <div className="form-group">
-                        <input type="file" id="uploadImage" name="uploadImage" className="upload-input" />
-                        <label htmlFor="uploadImage" className="upload-button">Choose File</label>
+                        <input className='custom-input' type="tel" id="phone" name="phone" placeholder="Phone" />
                     </div>
                 </div>
                 
                 <div className="embed-section">
-                    <button type="button" onClick={generateEmbedCode}>Generate Embed Code</button>
+                    <div className="generate-button" type="button" onClick={generateEmbedCode}>Code</div>
                     {showEmbedCode && (
                         <textarea readOnly value={embedCode} className="embed-code"></textarea>
                     )}
                 </div>
                 
-                <button type="button" onClick={onNext}>Next</button>
+                <div style={{marginTop: '3rem'}} className="default-button"onClick={onNext}>Next</div>
             </form>
         </div>
     );
