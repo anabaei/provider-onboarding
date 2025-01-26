@@ -42,17 +42,22 @@ input {
 
 .upload-button {
     display: inline-block;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #fff;
-    background-color: #007BFF;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4A90E2;
     border: none;
     cursor: pointer;
     text-align: center;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .upload-button:hover {
-    background-color: #0056b3;
+    background-color: #357ABD;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 button {
@@ -72,6 +77,7 @@ button:hover {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .embed-code {
@@ -82,3 +88,77 @@ button:hover {
     box-sizing: border-box;
     margin-left: 10px;
 }
+
+
+.custom-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.custom-input:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+.custom-input:hover {
+    border-color: #bbb;
+}
+
+.custom-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.custom-input:disabled {
+    background-color: #f5f5f5;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.generate-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #357ABD;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    outline: none;
+}
+
+.generate-button:hover {
+    background: linear-gradient(135deg, #357ABD, #357ABD);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.generate-button:active {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(0.98);
+}
+
+.generate-button:focus {
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.4);
+}
+
+.generate-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+

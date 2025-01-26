@@ -4,19 +4,14 @@ import { CalendarOutlined } from "@ant-design/icons";
 import { Switch } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { StopOutlined } from "@ant-design/icons";
-const Restriction = ({ onAddRestriction }) => {
-  const [days, setDays] = useState("");
+const Restriction = ({ onBack, onNext })=> {
+ 
   const [number, setNumber] = useState("");
   const [unit, setUnit] = useState("minutes");
   const [maxBook, setMaxBook] = useState({ enabled: false});
   const [requireApprove, setRequireApprove ] = useState({ enabled: false});
 
-  const handleAddRestriction = () => {
-    onAddRestriction({ days, number, unit });
-    setDays("");
-    setNumber("");
-    setUnit("minutes");
-  };
+ 
 
   const toggleMaxBook = () => {
     console.log(maxBook)
@@ -38,12 +33,12 @@ const Restriction = ({ onAddRestriction }) => {
     <div className="restriction-container">
       <div>
         <h2 className="headline">
-          {" "}
-          <CalendarOutlined style={{color: '#1890ff'}} />{" "}
+          
+          <CalendarOutlined style={{color: '#1890ff'}} />
           <div className="calendar">
-            {" "}
-            <StopOutlined style={{color: '#1890ff'}} /> Availability Restriction{" "}
-          </div>{" "}
+            
+            <StopOutlined style={{color: '#1890ff'}} /> Availability Restriction
+          </div>
         </h2>
         <div> Define availability restriction for your availability</div>
       </div>
@@ -110,6 +105,12 @@ const Restriction = ({ onAddRestriction }) => {
           </div>
         </div>
       </div>
+      <div className="broadcumb">
+                
+                <div className="default-button" onClick={onBack}>Back</div>
+                <div className="default-button" onClick={onNext}>Next</div>
+                <div></div>
+                </div>
     </div>
     //     <div>
     //     <input

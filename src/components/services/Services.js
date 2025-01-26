@@ -16,7 +16,7 @@ const Services = ({ onBack, onNext }) => {
     const [selectedServices, setSelectedServices] = useState([]);
 
     const toggleService = (service) => {
-        console.log(service);
+        
         setSelectedServices(prevState =>
             prevState.includes(service)
                 ? prevState.filter(s => s !== service)
@@ -32,7 +32,7 @@ const Services = ({ onBack, onNext }) => {
 
     return (
         <div className="services-container">
-            <div style={{alignContent: 'left'}}>What services does your clinic do</div>
+            <h4 style={{textAlign: 'left', marginLeft: '7rem'}}>What services does your clinic provide:</h4>
             <div className="services-grid">
                 {servicesList.map(service => (
                     <div
@@ -44,7 +44,7 @@ const Services = ({ onBack, onNext }) => {
                     </div>
                 ))}
             </div>
-            <div className="broadcumb">
+            <div className="broadcumb" style={{marginLeft: '7rem'}}>
                 
             <div className="default-button" onClick={onBack}>Back</div>
             <div className="default-button" onClick={handleNext}>Next</div>
