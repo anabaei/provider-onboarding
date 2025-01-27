@@ -67,7 +67,7 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
 
   return (
     <div className="onboarding-step2-container">
-      <div style={{ textAlign: "left", marginTop: '4rem', marginBottom: '2rem' }}>
+      <div style={{ textAlign: "left", marginTop: '2rem', marginBottom: '2rem' }}>
         <h1>ONBOARDING</h1>
         <h3> STEP 2: </h3>
         <div>Each specialist will receive an email to set up their calendar, or the admin can do it on their behalf. Every specialist will have their own login credentials. Access can also be delegated 
@@ -147,7 +147,7 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
       {modalContent && (
         <div className="modal">
           <div className="modal-content">
-            <h3>Add Details</h3>
+            <h4>Add Details</h4>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -190,14 +190,14 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
               <div className="default-button" style={{marginRight: '8px'}} type="button" onClick={closeModal}>
                 Cancel
               </div>
-              <div className="default-button"  type="submit">Add</div>
+              <button className="default-button"  type="submit">Add</button>
               </p>
             </form>
           </div>
         </div>
       )}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 5fr', marginTop: '4rem'}}>
-       <div style={{display: 'flex', gap: '10px', marginTop: '20px'}}>
+       <div style={{display: 'flex', gap: '10px', marginTop: '10px'}}>
        <div className="default-button"  onClick={onBack}>
         Back
       </div>

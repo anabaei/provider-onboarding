@@ -8,10 +8,15 @@ import WeeklyAvailability from './components/availability/WeeklyAvailability';
 import Restriction from './components/restriction/Restriction';
 import BookingRestrict from './components/booking-restrict/bookingRestrict'
 import '@ant-design/v5-patch-for-react-19';
+import Summary from './components/summary/Summary';
 
 const App = () => {
     const [step, setStep] = useState(1);
     const [selectedService, setSelectedService] = useState('');
+    const [serviceSelection, setServiceSelection] = useState({
+
+    })
+   
 
     const nextStep = () => {
         setStep(step + 1);
@@ -26,6 +31,57 @@ const App = () => {
         nextStep();
     };
 
+    const onHandleSelection = (selection) =>{
+        setServiceSelection(selection);
+    }
+
+    const handleEdit = () => {
+        // Logic to go back to the first step
+    };
+
+
+
+   const steps = [
+          {
+            "type": "confirmation",
+            "message": "SMS Confirmation 24 hours Advance"
+          },
+          {
+            "type": "reminder",
+            "message": "SMS Confirmation 48 hours Advance"
+          },
+          {
+            "type": "confirmation",
+            "message": "Email Confirmation 24 hours Advance"
+          },
+          {
+            "type": "reminder",
+            "message": "24 hours before appointment"
+          },
+          {
+            "type": "confirmation",
+            "message": "Your profile information has been updated."
+          },
+          {
+            "type": "reminder",
+            "message": "1 hours before appointment"
+          },
+          {
+            "type": "confirmation",
+            "message": "You have successfully subscribed to our newsletter."
+          },
+          {
+            "type": "reminder",
+            "message": "6 hours before appointment."
+          },
+          {
+            "type": "confirmation",
+            "message": "Your test results are available online."
+          }
+        ]
+      
+      
+
     return (
         <div className="App">
             {step === 1 && <OnboardingForm onNext={nextStep} />}
@@ -35,6 +91,7 @@ const App = () => {
             {step === 5 && <WeeklyAvailability onBack={prevStep} onNext={nextStep} />}
             {step === 6 && <Restriction onBack={prevStep} onNext={nextStep} />}
             {step === 7 && <BookingRestrict onBack={prevStep} onNext={nextStep} />}
+            {step === 8 && <Summary onBack={prevStep} onNext={nextStep}  onHandleSelection={onHandleSelection} steps={steps}/>}
         </div>
     );
 };
