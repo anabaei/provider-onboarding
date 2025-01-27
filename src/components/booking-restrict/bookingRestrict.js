@@ -7,17 +7,18 @@ import { QuestionCircleOutlined, MenuUnfoldOutlined, DatabaseOutlined, ContactsF
 
 const BookingRestrict = ({onBack, onNext}) => {
 
+  const [numberDuration, setNumberDuration] = useState("");
+  const [numberPad, setNumberPad] = useState("");
   const [number, setNumber] = useState("");
   const [unit, setUnit] = useState("minutes");
 
- 
-
-
-
-  
-
   return (
+    <div style={{ textAlign: "left", marginLeft: "3rem"}}>
+      <h1>ONBOARDING</h1>
+      <h3>STEP: 5</h3>
+
     <div className="restriction-container">
+   
       <div>
         <h2 className="headline" style={{ color: '#1890ff'}} >
         
@@ -34,8 +35,8 @@ const BookingRestrict = ({onBack, onNext}) => {
             <input
               type="number"
               placeholder="Enter number"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
+              value={numberDuration}
+              onChange={(e) => setNumberDuration(e.target.value)}
             />
           </div>
             <div style={{ marginLeft: "1rem", marginTop: '5px' }}> minutes </div>
@@ -78,8 +79,8 @@ const BookingRestrict = ({onBack, onNext}) => {
             <input
               type="number"
               placeholder="Enter number"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
+              value={numberPad}
+              onChange={(e) => setNumberPad(e.target.value)}
             />
             </div>
             <div style={{ marginLeft: "1rem", marginTop: '5px' }}> minutes </div>
@@ -93,34 +94,7 @@ const BookingRestrict = ({onBack, onNext}) => {
                 <div></div>
                 </div>
     </div>
-    //     <div>
-    //     <input
-    //         type="text"
-    //         placeholder="Enter days"
-    //         value={days}
-    //         onChange={(e) => setDays(e.target.value)}
-    //     />
-
-    //     </div>
-    //     <div>
-
-    //     <div className="restriction-input">
-    //     <input
-    //         type="number"
-    //         placeholder="Enter number"
-    //         value={number}
-    //         onChange={(e) => setNumber(e.target.value)}
-    //     />
-    //     <select value={unit} onChange={(e) => setUnit(e.target.value)}>
-    //         <option value="minutes">Minutes</option>
-    //         <option value="hours">Hours</option>
-    //         <option value="days">Days</option>
-    //     </select>
-
-    //     </div>
-    //     </div>
-    //     {/* <button type="button" onClick={handleAddRestriction}>Add Restriction</button> */}
-    // </div>
+  </div>
   );
 };
 

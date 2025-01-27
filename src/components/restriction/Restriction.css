@@ -1,37 +1,28 @@
-.restriction-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    gap: 10px;
-    margin: 10rem 20rem;
-    text-align: left;
-   
-}
-.headline {
+.restriction-container-availability {
     display: flex;
-    flex-direction:row;
+    flex-direction: column;
+    text-align: left;
+    margin: 1rem;
 }
-.calendar {
-    margin-left: -10px;
-    margin-top: 20px;
 
+.calendar {
+    margin-top: 20px;
 }
 .restriction-input{
     display: flex;
     flex-direction: row;
-  
 }
 
-.restriction-container input,
+/* .restriction-container input,
 .restriction-container select {
     padding: 5px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
     
-}
+} */
 
-.restriction-container button {
+/* .restriction-container button {
     padding: 5px 10px;
     font-size: 14px;
     color: #fff;
@@ -39,21 +30,100 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
+} */
 
-.restriction-container button:hover {
+/* .restriction-container button:hover {
     background-color: #0056b3;
-}
+} */
 .restrict-time{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
 }
 .restrict-time-details{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.restrict-time-in {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-}
+
+
+
+.elegant-input {
+    width: 70px;
+    max-width: 400px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #52c41a;
+    border-radius: 8px;
+    outline: none;
+    color: #333;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .elegant-input:focus {
+    border-color: #388e3c;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(82, 196, 26, 0.6);
+  }
+  
+  .elegant-input::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+  
+  .elegant-input:hover {
+    border-color: #45a049;
+  }
+  
+  .elegant-input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    border-color: #ccc;
+  }
+  
+
+  .elegant-select {
+    width: 100px;
+    max-width: 300px;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 2px solid #52c41a;
+    border-radius: 8px;
+    outline: none;
+    background: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%2352c41a" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+  }
+  
+  .elegant-select:focus {
+    border-color: #388e3c;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(82, 196, 26, 0.6);
+  }
+  
+  .elegant-select:hover {
+    border-color: #45a049;
+  }
+  
+  .elegant-select option {
+    font-size: 16px;
+    color: #333;
+    background-color: #ffffff;
+  }
+  
+  .elegant-select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    border-color: #ccc;
+  }
+  

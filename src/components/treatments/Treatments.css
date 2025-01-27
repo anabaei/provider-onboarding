@@ -1,5 +1,5 @@
 .treatments-container {
-    text-align: center;
+    text-align: left;
     margin: 2rem 15rem;
 }
 
@@ -36,3 +36,30 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+.ant-table-thead > tr > th {
+    background-color: #52c41a !important;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .ant-table-tbody > tr > td {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .custom-row:hover {
+    background-color: #f6ffed;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .ant-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  

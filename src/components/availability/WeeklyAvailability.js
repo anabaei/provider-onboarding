@@ -16,7 +16,7 @@ const daysOfWeek = [
 const WeeklyAvailability = ({ onBack, onNext }) => {
   const [availability, setAvailability] = useState(
     daysOfWeek.reduce((acc, day) => {
-      acc[day] = { enabled: true, ranges: [{ start: "", end: "" }] };
+      acc[day] = { enabled: day === "Sunday" || day === "Monday" || day === "Saturday" ? false: true, ranges: [{ start: "", end: "" }] };
       return acc;
     }, {})
   );
@@ -56,16 +56,18 @@ const WeeklyAvailability = ({ onBack, onNext }) => {
   return (
     <div>
       <div className="availability-container">
+      <h1>ONBOARDING</h1>
+      <h3>STEP: 5</h3>
         <div className="availability-grid">
-          <div style={{ textAlign: "left" }}>Weekly Availability</div>
+          <div>Define Your Weekly Availability Below:</div>
           {daysOfWeek.map((day) => (
             <div key={day} className="availability-row">
-              <label className="switch">
+             
                 <Switch
                   checked={availability[day].enabled}
                   onChange={() => toggleDay(day)}
                 />
-              </label>
+              
               <span className="day-label">{day}</span>
               <div>
                 {availability[day].enabled &&
@@ -104,7 +106,7 @@ const WeeklyAvailability = ({ onBack, onNext }) => {
               {!availability[day].enabled && <div> Unavailable on {day} </div>}
             </div>
           ))}
-          <div className="broadcumb">
+          <div className="broadcumb" style={{marginTop: '70px'}}>
             <div className="default-button" onClick={onBack}>
               Back
             </div>
