@@ -53,7 +53,7 @@
   border-radius: 0.25rem;
   background-color: white;
   color: #6c757d;
-  width: 50px;  /* Fixed width for square shape */
+  width: 70px;  /* Fixed width for square shape */
   height: 50px; /* Fixed height for square shape */
   line-height: 1; /* Ensure text is centered vertically */
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -70,4 +70,8 @@
   
   display: grid;
   grid-template-columns: 80px 80px 5fr;
+}
+
+h3 {
+  color: #28a745;
 }

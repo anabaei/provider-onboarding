@@ -9,7 +9,7 @@ const servicesList = [
     'Acupuncture',
     'Nutrition',
     'Yoga',
-    'Personal Training'
+    'Nutrition',
 ];
 
 const Services = ({ onBack, onNext }) => {
@@ -32,7 +32,10 @@ const Services = ({ onBack, onNext }) => {
 
     return (
         <div className="services-container">
-            <h4 style={{textAlign: 'left', marginLeft: '7rem'}}>What services does your clinic provide:</h4>
+            <h1>ONBOARDING</h1>
+
+            <h3 style={{margin: '5rem 0px 0px 0p'}}>STEP: 3</h3>
+            <p style={{margin: '0px 0px 3rem 0px'}}>What services does your clinic provide:</p>
             <div className="services-grid">
                 {servicesList.map(service => (
                     <div
@@ -44,7 +47,7 @@ const Services = ({ onBack, onNext }) => {
                     </div>
                 ))}
             </div>
-            <div className="broadcumb" style={{marginLeft: '7rem'}}>
+            <div className="broadcumb" style={{marginTop: '4rem'}}>
                 
             <div className="default-button" onClick={onBack}>Back</div>
             <div className="default-button" onClick={handleNext}>Next</div>

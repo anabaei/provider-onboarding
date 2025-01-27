@@ -13,7 +13,7 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
   ]);
 
   const [profiles, setProfiles] = useState([
-    { name: "Default Name", email: "default@example.com", image: "" },
+    { name: "Default Name", email: "default@gmail.com", phone: "12343232232", image: "" },
   ]);
 
   const [admins, setAdmins] = useState([
@@ -68,6 +68,8 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
   return (
     <div className="onboarding-step2-container">
       <div style={{ textAlign: "left", marginTop: '4rem', marginBottom: '2rem' }}>
+        <h1>ONBOARDING</h1>
+        <h3> STEP 2: </h3>
         <div>Each specialist will receive an email to set up their calendar, or the admin can do it on their behalf. Every specialist will have their own login credentials. Access can also be delegated 
         to the admin team if needed</div>
       </div>
@@ -82,16 +84,21 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
         {profiles.map((profile, index) => (
           <div
             key={index}
-            style={{ border: "1px solid lightGrey", margin: "0xp 10px", padding: '1rem' }}
+            style={{ borderRadius: '15px', fontSize: '11px', border: "1px solid #28a745", margin: "10xp 10px 0px 0px", padding: '1rem' }}
           >
-            <Avatar src={profile.image || "/images/profile1.png"} size={64} />
-            <div className="text-center mt-4">
-              <p>Name: {profile.name}</p>
-              <p style={{fontSize: '10px'}}>Email: {profile.email}</p>
+            <Avatar src={profile.image || "/images/profile.png"} size={94} />
+            <div className="text-center mt-4" style={{textAlign: 'left', marginTop: '2rem'}}>
+              <div>NAME: {profile.name}</div>
+              <div>EMAIL: {profile.email}</div>
+              <div>PHONE: {profile.phone}</div>
             </div>
           </div>
         ))}
+        
+        <div>
+        SPECIALIST
         <div className="flex items-center justify-center p-4 border-dashed border-2 rounded-lg w-1/2 md:w-1/4">
+        
           <Button
             type="dashed"
             onClick={addProfile}
@@ -100,8 +107,9 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
             <PlusOutlined className="text-4xl" />
           </Button>
         </div>
+        </div>
       </div>
-
+      
       <div
         style={{
           display: "grid",
@@ -113,14 +121,17 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
         {admins.map((admin, index) => (
           <div
             key={index}
-            style={{ border: "1px solid lightGrey", margin: "0xp 10px", padding: '1rem' }}
+            style={{borderRadius: '15px',textAlign: 'left', fontSize: '10px', border: "1px solid #28a745", margin: "2rem 1px", padding: '2rem 1rem' }}
           >
             <div style={{ display: 'flex', flexDirection: 'column'}}>
-              <div style={{display: 'flex', textAlign: 'left', margin: '0px 0px 5px 0px'}}>Name: {admin.name}</div>
-              <div style={{display: 'flex', fontSize: '10px'}}>Email: {admin.email}</div>
+              <div style={{display: 'flex',  margin: '0px 0px 5px 0px'}}>NAME: {admin.name}</div>
+              <div style={{display: 'flex'}}>EMAIL: {admin.email}</div>
             </div>
           </div>
         ))}
+        
+        <div>
+          ADMIN
         <div className="flex items-center justify-center p-4 border-dashed border-2 rounded-lg w-1/2 md:w-1/4">
           <Button
             type="dashed"
@@ -130,12 +141,13 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
             <PlusOutlined className="text-4xl" />
           </Button>
         </div>
+        </div>
       </div>
 
       {modalContent && (
         <div className="modal">
           <div className="modal-content">
-            <h2>Add Details</h2>
+            <h3>Add Details</h3>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -174,10 +186,12 @@ const OnboardingStep2 = ({ onBack, onNext }) => {
       </Upload>
                 </>
               )}
-              <button type="submit">Add</button>
-              <button type="button" onClick={closeModal}>
+              <p>
+              <div className="default-button" style={{marginRight: '8px'}} type="button" onClick={closeModal}>
                 Cancel
-              </button>
+              </div>
+              <div className="default-button"  type="submit">Add</div>
+              </p>
             </form>
           </div>
         </div>
