@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import "./OnboardingForm.css";
+import config from '../../config'; 
 
-const OnboardingForm = ({ onNext }) => {
+const OnboardingForm = ({ handleOnCreatingClinicComplete }) => {
+ 
+  // State to track form values
+  const [companyName, setCompanyName] = useState("");
+  const [mainContact, setMainContact] = useState("");
+  const [website, setWebsite] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [embedCode, setEmbedCode] = useState("");
   const [showEmbedCode, setShowEmbedCode] = useState(false);
   const [embedUrl, setEmbedUrl] = useState("cw3.twinnlinks.ca");
   const [copied, setCopied] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState(false);
+
 
   const generateEmbedCode = () => {
     const code = `<iframe src="${window.location.href}" width="600" height="400"></iframe>`;
@@ -25,6 +34,91 @@ const OnboardingForm = ({ onNext }) => {
       }
     };
   
+
+   // Function to handle form submission and send a fetch request
+  const createOrganization = async () => {
+    const company_code = companyName.replace(/\s+/g, ' ').trim();
+    const formData = {
+      company_name: companyName,
+      main_contact: mainContact,
+      company_code,
+      website,
+      email,
+      phone,
+    };
+
+    console.log("formData= ", formData);
+    // Send the data as a POST request
+    try {
+      const response = await fetch(`${config.apiBaseUrl}/org`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const formDataClinic = {
+          clinic_name: "default",
+          clinic_code: "11",
+          main_contact: mainContact,
+          website: "",
+          email,
+          phone,
+          image: "",
+          location: ""
+        };
+        console.log("formDataClinic= ", formDataClinic);
+        const responseClinic = await fetch(`${config.apiBaseUrl}/org/${company_code}/clinics`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formDataClinic),
+        });
+        // company_code
+
+        if (responseClinic.ok) {
+          console.log("Form submitted successfully!");
+          const data = await response.json();
+          console.log("data= ", data);
+          handleOnCreatingClinicComplete(data.id);
+        }
+
+        // Handle success response (e.g., show success message, redirect, etc.)
+        
+      } else {
+        console.error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+    // Handle input changes
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      switch (name) {
+        case "companyName":
+          setCompanyName(value);
+          break;
+        case "mainContact":
+          setMainContact(value);
+          break;
+        case "website":
+          setWebsite(value);
+          break;
+        case "email":
+          setEmail(value);
+          break;
+        case "phone":
+          setPhone(value);
+          break;
+        default:
+          break;
+      }
+    };
 
 
   const copyToClipboard = async () => {
@@ -50,6 +144,8 @@ const OnboardingForm = ({ onNext }) => {
               id="companyName"
               name="companyName"
               placeholder="Company Name"
+              value={companyName}
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group">
@@ -59,6 +155,7 @@ const OnboardingForm = ({ onNext }) => {
               id="mainContact"
               name="mainContact"
               placeholder="Main Contact"
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -71,6 +168,7 @@ const OnboardingForm = ({ onNext }) => {
               id="website"
               name="website"
               placeholder="Website"
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group">
@@ -80,6 +178,7 @@ const OnboardingForm = ({ onNext }) => {
               id="email"
               name="email"
               placeholder="Email"
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -91,6 +190,7 @@ const OnboardingForm = ({ onNext }) => {
               id="uploadImage"
               name="uploadImage"
               className="upload-input"
+              onChange={handleInputChange}
             />
             <label htmlFor="uploadImage" className="upload-button">
               Upload Image
@@ -103,6 +203,7 @@ const OnboardingForm = ({ onNext }) => {
               id="phone"
               name="phone"
               placeholder="Phone"
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -152,10 +253,14 @@ const OnboardingForm = ({ onNext }) => {
           )}
         </div>
 
+{/* create a base clinic, create org code based on name */}
+
         <div
           style={{ marginTop: "3rem" }}
           className="default-button"
-          onClick={onNext}
+          onClick={() => {
+            createOrganization(); // Call the second function
+          }}
         >
           Next
         </div>

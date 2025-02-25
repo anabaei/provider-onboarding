@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Services.css';
+import { useParams } from "react-router-dom";
 
 const servicesList = [
     'Chiropractor',
@@ -14,7 +15,7 @@ const servicesList = [
 
 const Services = ({ onBack, onNext }) => {
     const [selectedServices, setSelectedServices] = useState([]);
-
+    const { clinicId } = useParams();
     const toggleService = (service) => {
         
         setSelectedServices(prevState =>
@@ -26,7 +27,7 @@ const Services = ({ onBack, onNext }) => {
 
     const handleNext = () => {
         if (selectedServices.length > 0) {
-            onNext(selectedServices[0]);
+            onNext(selectedServices, clinicId);
         }
     };
 

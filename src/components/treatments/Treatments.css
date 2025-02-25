@@ -1,65 +1,135 @@
-.treatments-container {
-    text-align: left;
-    margin: 2rem 15rem;
-}
-
-.treatments-table-container {
-    overflow-x: auto;
-}
-
-.treatments-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.treatments-table th, .treatments-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.treatments-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
-.ant-table-thead > tr > th {
-    background-color: #52c41a !important;
-    color: #ffffff !important;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
+/* Container for the entire editable list */
+divCustom {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
   }
   
-  .ant-table-tbody > tr > td {
+  /* Title style */
+  h1 {
     text-align: center;
-    font-size: 14px;
     color: #333;
   }
   
-  .custom-row:hover {
-    background-color: #f6ffed;
-    transition: background 0.3s ease-in-out;
+  /* Style the button to add new rows */
+  button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: lef;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
   }
   
-  .ant-table {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  button:hover {
+    background-color: #45a049;
   }
+
+  .headerTable {
+   background-color: #45a049;
+    color: white;
+    border: 2px solid #45a049;
+    border-radius: 0;
+  }
+  
+  /* Style each <li> inside the header */
+ 
+  
+  /* Make the list behave like a table */
+  ul {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;  /* Ensures no space between rows */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style for each row (li elements) */
+  li {
+    display: table-row;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Alternate row color */
+  li:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Style for each cell (columns) inside the rows */
+  li divCustom {
+    display: table-cell;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+  }
+  
+  li divCustom input[type="text"], li divCustom input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Edit Button column */
+  li button.edit-btn {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  li button.edit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Button container - to align buttons nicely */
+  li divCustom button {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  /* Input fields in editable mode */
+  input[type="text"], input[type="number"] {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  /* Editable columns when editing */
+  .editable input[type="text"],
+  .editable input[type="number"] {
+    width: 80%;
+  }
+  
   
