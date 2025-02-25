@@ -16,6 +16,9 @@ The onboarding process includes the following steps:
    - Phone
    - Upload Image
 
-# Design
+   Defi
 
+# Design
+ne 
 ![service provider perspective.pdf](https://github.com/user-attachments/files/18432032/service.provider.perspective.pdf)
+dsasad
