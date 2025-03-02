@@ -18,12 +18,9 @@ const BookingRestrict = ({onBack, onNext}) => {
       <h3>STEP: 5</h3>
 
     <div className="restriction-container">
-   
       <div>
         <h2 className="headline" style={{ color: '#1890ff'}} >
-        
-             Booking Duration and Interval
-          
+            Booking Duration and Interval
         </h2>
         <div> Define availability restriction for your availability</div>
       </div>
@@ -41,7 +38,6 @@ const BookingRestrict = ({onBack, onNext}) => {
           </div>
             <div style={{ marginLeft: "1rem", marginTop: '5px' }}> minutes </div>
           </div>
-       
         </div>
       <div className="restrict-time">
         
